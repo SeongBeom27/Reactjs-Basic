@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Potato from './Potato';
+
 /**
  * Component
  * 
@@ -13,4 +13,3 @@ import Potato from './Potato';
  *      Javascript와 HTML 사이 이러한 조합을 jsx라고 부른다. ( In React )
  *  */ 
 ReactDOM.render( <App />, document.getElementById('potato'));
-
