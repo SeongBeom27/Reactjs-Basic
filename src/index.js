@@ -11,5 +11,5 @@ import App from './App';
  *      -> 리액트는 컴포넌트로 이루어져 있다. ( 컴포넌트로 HTML 코드를 표시한다. ) 
  * 
  *      Javascript와 HTML 사이 이러한 조합을 jsx라고 부른다. ( In React )
- *  */ 
-ReactDOM.render( <App />, document.getElementById('potato'));
+ *  */
+ReactDOM.render( <App /> , document.getElementById('potato'));
