@@ -11,11 +11,21 @@ class App extends React.Component{
         this.state = {
             count: 0
         }
+        /** 
+         * 검사를 보면 html code가 계속 바뀌는데, 그 이유가 virutal DOM 이다.
+         * 
+         * 또한, 이 말은 setState를 호출할 때마다 React가 render 함수를 실행시킨다는 것을 알 수 있다.
+         * 
+         * 
+         *  (아래 add, minus 코드는 같은 코드로 current 함수로 대체할 수 있다.
+         *    -> 저 함수가 무엇인지는 알아가보자. )
+         * 
+         * */ 
         this.add = () => {
-            console.log("add");
+            this.setState(current => ({count : current.count + 1}));
         };
         this.minus = () => {
-            console.log("minus");
+            this.setState({count : this.state.count - 1 });
         };
     }
 
