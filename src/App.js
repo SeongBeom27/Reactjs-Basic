@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import axios from 'axios';
 
 // class Component ( state를 위해서 사용 )
 
@@ -14,14 +14,17 @@ class App extends React.Component{
             isLoading: true,
             movies: []
         }
+
+        this.getMovies = async () => {
+            // axios는 시간이 좀 걸리기 때문에 데이터를 fetch 해올 때까지 기다려줘야 한다.
+            const movies = await axios.get("https://yts-proxy.nomadcoders1.now.sh/list_movies.json");
+        }
     }
 
     // 처음에 render을 하면 가장 먼저 실행되는 함수
     componentDidMount(){
-        setTimeout(() => {
-            this.setState({ isLoading: false});
-        }, 6000);
-    }
+        this.getMovies();
+    } 
     render(){
         const { isLoading } = this.state;
         return (
