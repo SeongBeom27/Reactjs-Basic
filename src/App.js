@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 
 // react는 자동으로 class component의 render method를 자동으로 실행시킨다.
 class App extends React.Component{
+    // constructor은 js class를 만들 때 호출되는 것이다.
+    // constructor이 가장 먼저 실행되고 그 이후에 render이 호출된다.
+    // compoent mounting, updating, unmounting에 대해서 찾아보기 (component가 실행되는 내부 과정이다.)
     constructor(props){
         super(props);
         // class component 의 특징 : state가 있다는 점??
