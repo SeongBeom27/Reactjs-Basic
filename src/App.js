@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
+import Movie from "./Movie";
 // class Component ( state를 위해서 사용 )
 
 // react는 자동으로 class component의 render method를 자동으로 실행시킨다.
@@ -17,7 +17,12 @@ class App extends React.Component{
 
         this.getMovies = async () => {
             // axios는 시간이 좀 걸리기 때문에 데이터를 fetch 해올 때까지 기다려줘야 한다.
-            const movies = await axios.get("https://yts-proxy.nomadcoders1.now.sh/list_movies.json");
+            const {
+                data : {
+                    data: { movies }
+                }
+            } = await axios.get("https://yts-proxy.nomadcoders1.now.sh/list_movies.json");
+            this.setState({movies, isLoading: false });
         }
     }
 
@@ -26,9 +31,20 @@ class App extends React.Component{
         this.getMovies();
     } 
     render(){
-        const { isLoading } = this.state;
+        const { isLoading, movies } = this.state;
         return (
-            <div>{isLoading ? "Loading..." : "We are ready"}</div>
+            <div>{isLoading ? "Loading..." : movies.map(movie =>{
+                return (<Movie 
+                    key={movie.id}
+                    id={movie.id} 
+                    year={movie.year} 
+                    title={movie.title} 
+                    summary={movie.summary} 
+                    poster={movie.medium_cover_image}
+                    />
+                );
+            })}
+            </div>
         );
     }
 }
