@@ -26,7 +26,6 @@ class App extends React.Component{
             this.setState({movies, isLoading: false });
         }
     }
-
     // 처음에 render을 하면 가장 먼저 실행되는 함수
     componentDidMount(){
         this.getMovies();
