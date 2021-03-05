@@ -4,6 +4,16 @@ import Movie from "./Movie";
 import "./App.css";
 // class Component ( state를 위해서 사용 )
 
+
+/**
+ *  react hook을 쓰면 state를 갖기위해서 class component 를 사용 할 필요가 없다.
+ *  -> class component가 구식이라는 것은 아니다. 
+ * 
+ * ( react hook ) 무료 수업도 있으니까 참고하기
+ * 
+ * ReactNative로 날씨앱 만들기 
+ */
+
 // react는 자동으로 class component의 render method를 자동으로 실행시킨다.
 class App extends React.Component{
     // constructor은 js class를 만들 때 호출되는 것이다.
